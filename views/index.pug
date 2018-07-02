@@ -2,4 +2,6 @@ extends layout
 
 block content
     .container
-        h1 this is index page
+        ul.list-group
+            each article, i in articles
+                li.list-group-item= article.title
