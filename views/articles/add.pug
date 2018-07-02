@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+    h1 #{title}
+    form(method="post", action="/articles/add")
+        .form-group
+            label Title
+            |     
+            input.form-control(type="text", name="title", placeholder="Title")
+        |   
+        .form-group
+            label Author
+            |     
+            input.form-control(type="text", name="author", placeholder="Author")
+        |   
+        .form-group
+            label Content
+            |     
+            textarea.form-control(name="content", rows="3", placeholder="Content")
+        input.btn.btn-primary(type="submit",value="Add Article") 
