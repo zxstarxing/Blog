@@ -10,6 +10,19 @@ router.get('/new',(req,res)=>{
     })
 })
 
+router.get('/content/:id',(req,res)=>{
+    Article.findById({_id:req.params.id},(error,article)=>{
+        if(error){
+            console.log(error);
+            return;
+        }
+        else
+        {
+            res.render('articles/form',{article});
+        }
+    })
+})
+
 router.post('/add',(req,res)=>{
     let article = req.body;
     article.createdatetime = new Date();

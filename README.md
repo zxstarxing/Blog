@@ -8,3 +8,6 @@
 * conect mongodb on mlab
 * load index list page
 * add article module
+
+### 2018-07-04
+* add show article module
