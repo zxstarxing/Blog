@@ -2,7 +2,8 @@
 var express = require("express");
 var path = require("path");
 var mongoose = require("mongoose");
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+var session = require('express-session')
 
 mongoose.connect("mongodb://zhangxing:zhangxing1@ds161960.mlab.com:61960/zxstarxingblog");
 let db = mongoose.connection;
@@ -24,6 +25,18 @@ app.set('view engine', 'pug');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+}))
+
+app.use(require('connect-flash')());
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
+
 let Article = require('./models/articles');
 
 let articleRouter = require('./routers/articles');
@@ -36,6 +49,6 @@ app.get('/',(req,res)=>{
     
 })
 
-app.listen(5000);
+app.listen(5050);
 
-console.log('listening port on 5000');
+console.log('listening port on 5050');

@@ -20,12 +20,19 @@ html(lang="en")
             a.nav-link(href="/articles/new")
               | AddBlog 
               span.sr-only (current)
+          li.nav-item.active
+            a.nav-link(href="/timeline")
+              | TimeLine 
+              span.sr-only (current)    
          
     main.container(role="main")
       .starter-template
         h1 Bootstrap starter template
         |         
         p.lead
-          block content
+          .container
+            != messages('message', locals)
+            block content
     script(src="/bower_components/jquery/dist/jquery.min.js")
     script(src="/bower_components/boostrap/dist/js/bootstrap.min.js")
+    script(src="/js/main.js")

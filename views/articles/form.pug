@@ -5,4 +5,7 @@ block content
     h3 Author #{article.author}
     p #{article.content}
     p Create Datetime #{article.createdatetime}
-    
+    hr
+    a.btn.btn-primary.mr-2(href="/articles/content/"+article._id+"/edit") Edit
+    |
+    a.btn.btn-danger.article-delete(href="#",data-id=article._id) Delete

@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+    form(method="post", action="/articles/update/"+article._id)
+        .form-group
+            label Title
+            |     
+            input.form-control(type="text", name="title", placeholder="Title", value=article.title)
+        |   
+        .form-group
+            label Author
+            |     
+            input.form-control(type="text", name="author", placeholder="Author",value=article.author)
+        |   
+        .form-group
+            label Content
+            |     
+            textarea.form-control(name="content", rows="3", placeholder="Content")=article.content
+        input.btn.btn-primary(type="submit",value="Update Article") 
